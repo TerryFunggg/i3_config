@@ -25,7 +25,7 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run -nb black -sb tomato -l 11
-bindsym $mod+d exec rofi -show run -lines 10
+bindsym $mod+x exec rofi -show run -lines 10
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -91,8 +91,8 @@ set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 " j "
-set $ws10 "10"
+set $ws9 "9:  "
+set $ws10 "10:  "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -103,8 +103,8 @@ bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -115,12 +115,13 @@ bindsym $mod+Shift+5 move container to workspace number $ws5
 bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
+# use xprop to check the app class name
 assign [class="Emacs"] $ws2
 assign [class="Google-chrome"] $ws3
-assign [class="ByWave"] $ws9
+assign [class="ByWave"] $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -188,6 +189,7 @@ exec google-chrome
 exec ~/ByWave_1.2.1_linuxx86_64.appimage
 
 # init the screen monitor setting
+# suggest using arandr to config monitor
 # using laptop screen and home screen
 #exec xrandr --output eDP-1 --mode 1366x768 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output HDMI-2 --off
 # just using home screen
