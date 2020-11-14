@@ -83,15 +83,15 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: Terminal"
-set $ws2 "2: Editor"
-set $ws3 "3: Bowser"
+set $ws1 "1:  "
+set $ws2 "2:  "
+set $ws3 "3:  "
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
+set $ws9 " j "
 set $ws10 "10"
 
 # switch to workspace
@@ -117,6 +117,10 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+assign [class="Emacs"] $ws2
+assign [class="Google-chrome"] $ws3
+assign [class="ByWave"] $ws9
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -179,6 +183,12 @@ bindsym $mod+shift+x exec i3lock
 
 # init the wallpaper
 exec_always feh --bg-scale /home/terryfung/Pictures/wallpaper.jpg
+exec emacs
+exec google-chrome
+exec ~/ByWave_1.2.1_linuxx86_64.appimage
 
 # init the screen monitor setting
-exec xrandr --output eDP-1 --mode 1366x768 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output HDMI-2 --off
+# using laptop screen and home screen
+#exec xrandr --output eDP-1 --mode 1366x768 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output HDMI-2 --off
+# just using home screen
+exec xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output HDMI-2 --off
