@@ -1,3 +1,7 @@
+### file manager
+ranger
+Nautilus
+
 #### monitor:
 arandar
 
